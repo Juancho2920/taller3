@@ -162,8 +162,53 @@ Si el producto existe, la API devuelve un 200 OK junto con un mensaje indicando 
 
 [Pantallazo: petición y respuesta del DELETE](delete.jpeg)
 
+## instalamos el gunicorn
+usamos el comando pip install gunicorn
+## creamos el archivo requirements
+usamos el comando pip freeze > requirements.txt
+## actualizamos el github
+usamos el paso a paso del git 
+git add .
+git commit -m "Actualización"
+git push
+## Ingresamos a render
+entramos a la pagina de render e iniciamos sesion con github 
+creamos un new web service
+conectamos con nuestro repositorio
+en el Start Command ponemos gunicorn app:app
+y le damos deploy web service
+## creacion del web server 
+si todo sale bien y lo hicimos de manera correcta 
+se debería observar que:
+El repositorio fue descargado.
+Las dependencias fueron instaladas.
+El build terminó correctamente.
+La aplicación inició.
+El servicio quedó disponible.
+## Obtener la URL de la aplicación
+Una vez finalizado correctamente el despliegue, Render proporciona una URL pública bajo el dominio:
+https://nombre-del-servicio.onrender.com
+Los Web Services de Render reciben automáticamente un subdominio onrender.com. También es posible configurar posteriormente un dominio propio.
+
+## Verificar la aplicación
+Abrir la URL proporcionada por Render:
+https://nombre-del-servicio.onrender.com
+y comprobar:
+La página carga correctamente.
+Los endpoints de la API responden.
+El frontend puede comunicarse con el backend.
+La conexión con la base de datos funciona.
+Las variables de entorno están disponibles.
+No aparecen errores en los logs.
+Si se trata de una API, también se pueden probar endpoints como:
+GET /api/health
+en nuestro caso seria:
+https://taller3-wfze.onrender.com/
+y listo, compruebas ponindo lops ends del get, post, put and get y todo deberia funcionar correctamente
 ## Consideraciones finales
 Los productos se almacenan directamente en una lista de Python, por lo que los datos se mantienen solamente mientras el servidor está ejecutándose.
 Si se detiene y vuelve a iniciar la aplicación, los productos regresan a los valores iniciales definidos en el código.
 Para las peticiones que envían información en el body, como POST y PUT, es necesario seleccionar en Postman Body → raw → JSON.
 Al seleccionar JSON, Postman enviará automáticamente el encabezado Content-Type: application/json, que permite que Flask interprete correctamente la información recibida.
+
+
